@@ -21,11 +21,11 @@ function generatePassword(){
   }
   
   const lowercaseAlphabet = "abcdefghijklmnopqrstuvwxyz".split("").sort();
-  const uppercaseAlphabet = lowercaseAlphabet.toUpperCase().split("").sort();
+  const uppercaseAlphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("").sort();
   const numbers = "1234567890".split("").sort();
   const special = "!@#$%^&*()-_=+[{]}\|;:'/\",<.>/?~".split("").sort();
 
-  const confirmUpperLetters = confirm("Would your password to contain uppercase letters?");
+  const confirmUppercaseLetters = confirm("Would your password to contain uppercase letters?");
   const confirmLowercaseLetters = confirm("Would you like your password to contain lowercase letters?")
   const confirmNumbers = confirm("Would you like your password to contain numbers?");
   const confirmSpecial = confirm("Would you like your password to contain special characters?");
@@ -49,11 +49,11 @@ function generatePassword(){
   }
 
   let password = "";
-  let stringCombiner = [lowercaseAlphabet, uppercaseAlphabet, numbers, special]
 
   for (let i = 0; i < characterLength; i++) {
-    const randomize = Math.floor(Math.random() * stringCombiner.length);
-    password += stringCombiner[randomize];
+    const randomize = Math.floor(Math.random() * characterStitch.length);
+    password += characterStitch[randomize];
+  }
 
   return password;
 
@@ -67,7 +67,6 @@ function writePassword() {
     
   passwordText.value = password;
 
-}
 }
 
 // Add event listener to generate button
